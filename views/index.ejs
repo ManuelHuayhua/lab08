@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Lab08</title>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+
+    h1, h2 {
+      color: #343a40;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    button[type="submit"] {
+      margin-bottom: 10px;
+      border-radius: 4px;
+      padding: 8px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <h1 class="font-italic">Usuarios</h1>
+    <form action="/users" method="POST">
+      <div class="form-group">
+       
+        <label for="name" class="font-italic">Nombre:</label>
+        <input type="text" id="name" name="name" required class="form-control" maxlength="100" oninput="validateInput()">
+        <div class="invalid-feedback">
+      </div>
+      <div class="form-group">
+        <label for="email" class="font-italic">Email:</label>
+        <input type="email" id="email" name="email" required class="form-control" maxlength="100">
+      </div>
+      <div class="form-group">
+        <label for="password" class="font-italic">Contraseña:</label>
+        <input type="password" id="password" name="password" required class="form-control" maxlength="100">
+        <div class="invalid-feedback"></div>
+      </div>
+      <button type="submit" class="btn btn-danger">Crear Usuario</button>
+    </form>
+    <hr>
+    <h2 class="font-italic">Lista de Usuarios:</h2>
+    <ul>
+      <% users.forEach((user) => { %>
+        <li>
+          <%= user.name %> (<%= user.email %>)
+          <a href="/users/edit/<%= user._id %>" class="btn btn-outline-success"> Editar</a>
+          <a href="/users/delete/<%= user._id %>" class="btn btn btn-outline-danger">Eliminar</a>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>

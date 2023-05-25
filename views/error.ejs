@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+
+    h1 {
+      color: #343a40;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      color: rgba(255, 0, 200, 0.774);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <h1>Error al crear usuario</h1>
+    <ul>
+      <% errorMessages.forEach((message) => { %>
+        <li><%= message %></li>
+      <% }) %>
+    </ul>
+    <a href="/users" class="btn btn-danger">Regresar</a>
+    
+  </div>
+</body>
+</html>
